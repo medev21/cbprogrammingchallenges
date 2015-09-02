@@ -1,0 +1,68 @@
+def CountingMinutes(str)
+  times = str.scan(/[0-9]+|[a-z]*/) #scans only digits and letters
+  times = times.reject {|i| i.empty?} #removes empty spaces in the array
+  first_time = times[0,3] #stores first 3 values
+  last_time = times[3,3]  #stores last 3 values
+
+  first_time = convert_time(first_time)
+  last_time = convert_time(last_time)
+
+  return test(first_time, last_time)
+end
+
+def test(first_time, last_time)
+  if first_time[0] == last_time[0]
+    minutes = 1440
+    if first_time[1] > last_time[1]
+      minutes = minutes - (first_time[1]-last_time[1])
+    else
+      minutes = minutes + (first_time[1]-last_time[1])
+    end
+  elsif first_time[0] > last_time[0]
+    minutes = 1440 - ((first_time[0]-last_time[0])*(60))
+    if first_time[1] > last_time[1]
+      minutes = minutes - (first_time[1]-last_time[1])
+    else
+      minutes = minutes + (first_time[1]-last_time[1])
+    end
+  else
+    minutes = ((last_time[0]-first_time[0])*(60))
+    if first_time[1] > last_time[1]
+      minutes = minutes - (first_time[1]-last_time[1])
+    else
+      minutes = minutes + (last_time[1]-first_time[1])
+    end
+  end
+
+  return minutes
+end
+
+def convert_time(time)
+  if time[2] == 'pm'
+    if time[0] < '12'
+      time.pop
+      time.map! {|val| val.to_i}
+      time[0] = time[0] + 12
+    else
+      time.pop
+      time.map! {|val| val.to_i}
+    end
+  else
+    if time[0] == '12'
+      time.pop
+      time[0] = 0
+      time.map! {|val| val.to_i}
+    else
+      time.pop
+      time.map! {|val| val.to_i}
+    end
+  end
+  return time
+end
+
+puts(CountingMinutes("12:30pm-12:00am"))
+puts(CountingMinutes("1:00pm-11:00am"))
+puts(CountingMinutes("9:00am-10:00am"))
+puts(CountingMinutes("1:23am-1:08am"))
+puts(CountingMinutes("9:30am-10:00am"))
+puts(CountingMinutes("9:00am-10:30am"))
