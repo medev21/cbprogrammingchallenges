@@ -12,16 +12,10 @@ def DashInsertII(num)
     if (digit != 0 && next_digit != 0)
       if digit.odd? && next_digit.odd?
         str = str + '-'
-        puts "odd #{digit} , #{next_digit}"
-        puts str
-      # elsif (digit % 2 == 0) and (next_digit % 2 == 0)
-      #   str = str + '*'
+
       elsif digit.even? && next_digit.even?
         str = str + '*'
-        puts "even #{digit} , #{next_digit}"
-        puts str
-      else
-        puts "nums #{digit} , #{next_digit}"
+
       end
     end
     key += 1
