@@ -7,10 +7,12 @@ def DashInsertII(num)
     str = str + value
     digit = value.to_i
     next_digit = number[key+1].to_i
-    if (digit % 2 == 1) and (next_digit % 2 == 1)
-      str = str + '-'
-    elsif (digit % 2 == 0) and (next_digit % 2 == 0)
-      str = str + '*'
+    if value != number.last
+      if (digit % 2 == 1) and (next_digit % 2 == 1)
+        str = str + '-'
+      elsif (digit % 2 == 0) and (next_digit % 2 == 0)
+        str = str + '*'
+      end
     end
   end
   return str
@@ -18,4 +20,4 @@ def DashInsertII(num)
 end
 
 puts DashInsertII(99946)
-# puts DashInsertII(56647304)
+puts DashInsertII(56647304)
