@@ -3,15 +3,16 @@ def ThreeFiveMultiples(num):
   sum = 0
   i = 1
   while i < num:
-      a = i * 3
-      b = i * 5
-
-      if a != b:
-          if a < num:
-              sum += a
-          if b < num:
-              sum += b
-
+    #   a = i * 3
+    #   b = i * 5
+      #
+    #   if a != b:
+    #       if a < num:
+    #           sum += a
+    #       if b < num:
+    #           sum += b
+      if i % 3 == 0 or i % 5 == 0:
+          sum += i
       i += 1
 
   return sum
