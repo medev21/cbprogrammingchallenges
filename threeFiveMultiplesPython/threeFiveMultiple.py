@@ -6,11 +6,11 @@ def ThreeFiveMultiples(num):
       a = i * 3
       b = i * 5
 
-      if a < num:
-          sum += a
-
-      if b < num:
-          sum += b
+      if a != b:
+          if a < num:
+              sum += a
+          if b < num:
+              sum += b
 
       i += 1
 
@@ -19,3 +19,5 @@ def ThreeFiveMultiples(num):
 print(ThreeFiveMultiples(10))
 print(ThreeFiveMultiples(6))
 print(ThreeFiveMultiples(1))
+print(ThreeFiveMultiples(31))
+print(ThreeFiveMultiples(17))
