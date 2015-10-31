@@ -1,11 +1,16 @@
 def NumberEncoding(str)
 
   # code goes here
-  arr = str.split('')
-  arr.each do |c|
-    c = c.ord - 96
+  arr = []
+
+  str.split('').each do |c|
+    if c.ord > 96
+      arr << (c.ord - 96)
+    else
+      arr << c
+    end
   end
-  return arr
+  return arr.join()
 
 end
 
