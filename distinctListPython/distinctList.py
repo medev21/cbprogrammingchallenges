@@ -8,8 +8,7 @@ def DistinctList(arr):
       if arr.count(val) > 1 and start != val:
           count += (arr.count(val) - 1)
           start = val
-    #   else:
-    #       next
+          
   return count
 
 print(DistinctList([0,-2,-2,5,5,5]))    #answer is 3
