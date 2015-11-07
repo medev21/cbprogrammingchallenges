@@ -27,12 +27,14 @@ def LookSaySequence(num)
       next
     else
       res << count << arr[i]
+      count = 1
     end
   end
-  return res
+  return res.join().to_i
 
 end
 
 puts LookSaySequence(1211) #answer is 111221
 puts LookSaySequence(2466) #answer is 121426
 puts LookSaySequence(223445) #answer is 22132415
+puts LookSaySequence(0) #answer is 10
