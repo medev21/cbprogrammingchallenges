@@ -3,9 +3,6 @@ def LookSaySequence(num)
   # code goes here
   arr = num.to_s.split('')
   arr.each {|x| x.to_i}
-  res = []
-  prev = 0
-  count = 1
   # arr.each do |i|
   #   # if prev != i
   #   #   res << count << i
@@ -22,11 +19,20 @@ def LookSaySequence(num)
   #   #   prev = i
   #   # end
   # end
-  0.upto(arr.length-1) do
-    if arr_next
+  res = []
+  count = 1
+  0.upto(arr.length-1) do |i|
+    if arr[i+1] == arr[i]
+      count += 1
+      next
+    else
+      res << count << arr[i]
+    end
   end
   return res
 
 end
 
 puts LookSaySequence(1211) #answer is 111221
+puts LookSaySequence(2466) #answer is 121426
+puts LookSaySequence(223445) #answer is 22132415
