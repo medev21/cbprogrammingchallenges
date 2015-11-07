@@ -1,27 +1,14 @@
 def LookSaySequence(num)
 
   # code goes here
-  arr = num.to_s.split('')
-  arr.each {|x| x.to_i}
-  # arr.each do |i|
-  #   # if prev != i
-  #   #   res << count << i
-  #   #   prev = i
-  #   # else
-  #   #   prev = i
-  #   #   count += 1
-  #   # end
-  #   # if prev == i
-  #   #   prev = i
-  #   #   res << count << i
-  #   # else
-  #   #   res << count << i
-  #   #   prev = i
-  #   # end
-  # end
-  res = []
-  count = 1
+  arr = num.to_s.split('') #convert num to string and split into an array
+  arr.each {|x| x.to_i} #convert each value to integer
+  res = []  #empty array
+  count = 1 #start count 1
   0.upto(arr.length-1) do |i|
+    #if next value in array is equal to current value, increase count by 1
+    # and go to next value.  Else add count and current value into the res empty
+    #array
     if arr[i+1] == arr[i]
       count += 1
       next
@@ -30,7 +17,7 @@ def LookSaySequence(num)
       count = 1
     end
   end
-  return res.join().to_i
+  return res.join().to_i  #return res array as an integer
 
 end
 
