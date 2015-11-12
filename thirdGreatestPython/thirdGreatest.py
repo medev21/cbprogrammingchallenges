@@ -1,8 +1,14 @@
 def ThirdGreatest(strArr):
 
   # code goes here
-  text = "Code must be properly"
-  more = " indented in Python!"
-  return 'hi'
+  large_words = []
+  size = 0
+  for val in strArr:
+      if len(val) > size:
+          large_words.insert(0, val)
+          strArr.remove(val)
+      else:
+          size = len(val)
+  return large_words
 
-print(ThirdGreatest('hi'))
+print(ThirdGreatest(["coder","byte","code"]))
